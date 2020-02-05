@@ -33,9 +33,35 @@ game.appendChild(grid);
  
 
 
-  //
+  //loop through each element in our cards array
+
+  for (i=0 ; i<cardsArray.length;i++){
+//create a div element and assign to variable card
+
+var card=document.createElement('div');
 
 
+// apply card class to that div
+
+card.classList.add('card');
+
+
+
+//set the data name attribute of the div to the cards array name
+card.dataset.name=cardsArray[i].name;
+
+
+
+// apply the background image of the div to card arrayimg
+
+card.style.backgroundImage=`url(${cardsArray[i].img})`;
+
+
+// append the div to grid section
+grid.appendChild(card);
+
+
+  };
 
   //
 
