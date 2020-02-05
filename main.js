@@ -76,11 +76,23 @@ for (i = 0; i < gameGrid.length; i++) {
 
 };
 
+var firstGuess = '';
+var secondGuess = '';
+
 
 //Set count to 0
-
 var count = 0;
+var previousTraget=null;
 
+//add match css
+
+var match = function () {
+    var selected = document.querySelectorAll('.selected');
+
+    for (i = 0; i < selected.length; i++) {
+        selected[i].classList.add('match');
+    }
+};
 
 
 //add event listener to grid
@@ -91,17 +103,35 @@ grid.addEventListener('click', function (event) {
     //donot allow the grid it self to be selected
     // only divs to inside the grid
 
-    if (clicked.nodeName === "SECTION") {
+    if (clicked.nodeName === "SECTION" || clicked===previousTraget ) {
         return;
     }
     //we only want to add selected class if cureent count is less than 2
     if (count < 2) {
         count++
-        //add selected class
-        clicked.classList.add('selected');
+
+        if (count === 1) {
+            //assgin first guess
+            firstGuess = clicked.dataset.name;
+            clicked.classList.add('selected');
+        } else {
+            //assgin second guess
+            secondGuess = clicked.dataset.name;
+            clicked.classList.add('selected');
+
+        }
+        //if both are not empty
+        // If both guesses are not empty
+        if (firstGuess !== '' && secondGuess !== '') {
+            // And the firstGuess matches secondGuess
+            if (firstGuess === secondGuess) {
+                // Run the match function
+                match();
+
+            }
+        }
+        previousTraget=clicked;
     }
-
-
 });
 
 

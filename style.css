@@ -31,3 +31,9 @@ body{
 .selected{
     border: darkviolet solid 5px;
 }
+
+
+.match{
+    border: 5px solid white !important;
+    background-image: none !important;
+}
