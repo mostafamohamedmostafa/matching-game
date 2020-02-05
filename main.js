@@ -15,14 +15,22 @@ var cardsArray = [
 
   //grab the div with id game-board and assign to a variable game
 
+  var game =document.getElementById('game-board');
+
+
   //create new section element and assign it to variable grid
 
+var grid=document.createElement('section');
 
   //give section grid a class name of grid also
+
+  grid.setAttribute('class','grid');
 
 
   //append the grid section to te game board div
 
+game.appendChild(grid);
+ 
 
 
   //
