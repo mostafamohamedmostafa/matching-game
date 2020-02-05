@@ -76,8 +76,33 @@ for (i = 0; i < gameGrid.length; i++) {
 
 };
 
-  //
 
+//Set count to 0
+
+var count = 0;
+
+
+
+//add event listener to grid
+grid.addEventListener('click', function (event) {
+    // declare a variable to target our clicked item
+    var clicked = event.target;
+
+    //donot allow the grid it self to be selected
+    // only divs to inside the grid
+
+    if (clicked.nodeName === "SECTION") {
+        return;
+    }
+    //we only want to add selected class if cureent count is less than 2
+    if (count < 2) {
+        count++
+        //add selected class
+        clicked.classList.add('selected');
+    }
+
+
+});
 
 
 

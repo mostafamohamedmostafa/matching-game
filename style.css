@@ -27,3 +27,7 @@ body{
     width: 150px;
     
 }
+
+.selected{
+    border: darkviolet solid 5px;
+}
