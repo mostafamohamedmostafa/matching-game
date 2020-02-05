@@ -6,10 +6,7 @@
 
 body {
   margin: 20px 0;
-  background-repeat: no-repeat;
- background-size: cover;
- background-image: url('https://marsmanwrites.files.wordpress.com/2018/01/3d1b28b7e28d6b6fe2b5293aff3fed96.jpg');
-
+  background: #6589F9;
 }
 
 .grid {
@@ -47,7 +44,7 @@ body {
 
 .back {
   transform: rotateY(180deg);
-  background-color: white;
+  background-color: #6589F9;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -55,10 +52,6 @@ body {
 
 .selected {
   transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
 }
 
 .match .front {
