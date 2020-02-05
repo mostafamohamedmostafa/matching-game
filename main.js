@@ -82,7 +82,8 @@ var secondGuess = '';
 
 //Set count to 0
 var count = 0;
-var previousTraget=null;
+var previousTraget = null;
+var delay = 1500;
 
 //add match css
 
@@ -95,14 +96,14 @@ var match = function () {
 };
 
 //reset guesses after two attemps
-var resetGuesses = function(){
-    firstGuess="";
-    secondGuess="";
-    count=0;
-    previousTraget=null;
+var resetGuesses = function () {
+    firstGuess = "";
+    secondGuess = "";
+    count = 0;
+    previousTraget = null;
 
-    var selected= document.querySelectorAll('.selected');
-    for (i=0;i<selected.length;i++){
+    var selected = document.querySelectorAll('.selected');
+    for (i = 0; i < selected.length; i++) {
         selected[i].classList.remove('selected');
     }
 
@@ -118,7 +119,7 @@ grid.addEventListener('click', function (event) {
     //donot allow the grid it self to be selected
     // only divs to inside the grid
 
-    if (clicked.nodeName === "SECTION" || clicked===previousTraget ) {
+    if (clicked.nodeName === "SECTION" || clicked === previousTraget) {
         return;
     }
     //we only want to add selected class if cureent count is less than 2
@@ -141,14 +142,15 @@ grid.addEventListener('click', function (event) {
             // And the firstGuess matches secondGuess
             if (firstGuess === secondGuess) {
                 // Run the match function
-                match();
-                resetGuesses();
+                setTimeout(match, delay);
+                setTimeout(resetGuesses, delay);
 
-            }else{
-                resetGuesses();
+            } else {
+                setTimeout(resetGuesses, delay);
+
             }
         }
-        previousTraget=clicked;
+        previousTraget = clicked;
     }
 });
 
