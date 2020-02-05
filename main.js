@@ -94,6 +94,21 @@ var match = function () {
     }
 };
 
+//reset guesses after two attemps
+var resetGuesses = function(){
+    firstGuess="";
+    secondGuess="";
+    count=0;
+    previousTraget=null;
+
+    var selected= document.querySelectorAll('.selected');
+    for (i=0;i<selected.length;i++){
+        selected[i].classList.remove('selected');
+    }
+
+
+
+};
 
 //add event listener to grid
 grid.addEventListener('click', function (event) {
@@ -127,7 +142,10 @@ grid.addEventListener('click', function (event) {
             if (firstGuess === secondGuess) {
                 // Run the match function
                 match();
+                resetGuesses();
 
+            }else{
+                resetGuesses();
             }
         }
         previousTraget=clicked;
